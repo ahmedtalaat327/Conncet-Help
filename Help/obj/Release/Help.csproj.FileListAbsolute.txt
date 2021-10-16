@@ -1,0 +1,10 @@
+C:\Users\AhmadHassan\source\repos\Help\Help\bin\Release\Help.exe.config
+C:\Users\AhmadHassan\source\repos\Help\Help\bin\Release\Help.exe
+C:\Users\AhmadHassan\source\repos\Help\Help\bin\Release\Help.pdb
+C:\Users\AhmadHassan\source\repos\Help\Help\obj\Release\Help.csprojAssemblyReference.cache
+C:\Users\AhmadHassan\source\repos\Help\Help\obj\Release\Help.Form1.resources
+C:\Users\AhmadHassan\source\repos\Help\Help\obj\Release\Help.Properties.Resources.resources
+C:\Users\AhmadHassan\source\repos\Help\Help\obj\Release\Help.csproj.GenerateResource.cache
+C:\Users\AhmadHassan\source\repos\Help\Help\obj\Release\Help.csproj.CoreCompileInputs.cache
+C:\Users\AhmadHassan\source\repos\Help\Help\obj\Release\Help.exe
+C:\Users\AhmadHassan\source\repos\Help\Help\obj\Release\Help.pdb
