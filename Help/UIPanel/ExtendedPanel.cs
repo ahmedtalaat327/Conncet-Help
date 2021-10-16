@@ -7,7 +7,7 @@ using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using System.Windows.Forms.Layout;
 
-namespace EmulatorProject
+namespace Help
 {
     public class ExtendedPanel : Panel
     {

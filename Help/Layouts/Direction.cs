@@ -1,6 +1,6 @@
 ﻿
 
-namespace EmulatorProject
+namespace Help
 {
     public enum Direction
     {

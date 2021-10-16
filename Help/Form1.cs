@@ -1,4 +1,4 @@
-﻿using EmulatorProject;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -193,7 +193,7 @@ namespace Help
 
 
             Label title = new Label();
-            title.Font = new Font("Arial", 11, FontStyle.Bold);
+            title.Font = new Font("Arial", 12, FontStyle.Bold);
             title.Margin = new Padding(5, 5, 5, 1);
             title.Text = "Welcome to Help Connect App.";
             title.Size = new Size(300, 20);
