@@ -67,7 +67,7 @@ namespace Help
             leftBasePanel.Size = new Size((panel1.Width / 2) - 10, panel1.Height - 55);
             leftBasePanel.Margin = new Padding(5, 5, 2, 5);
             basePanel.Controls.Add(leftBasePanel);
-
+            panel1.Controls.SetChildIndex(basePanel, 2);
 
             //buttons of leftBasePanel
             RoundedButton overView_option = new RoundedButton();
@@ -136,6 +136,7 @@ namespace Help
             DrawingControl.SuspendDrawing(rightBasePanel);
             setThirdOptionComps();
             DrawingControl.ResumeDrawing(rightBasePanel);
+
         }
 
         private void Documentation_option_MouseClick(object sender, MouseEventArgs e)
@@ -333,6 +334,9 @@ namespace Help
                     ((RoundedTextField)item).Enabled = false;
                 }
             }
+
+
+            setDisableWindow(null,new Size(400, 200));
         }
 
         private void removeAllChildsForRightBasePane()
@@ -344,16 +348,30 @@ namespace Help
             }
         }
 
-        private void setDisableWindow()
+        private void setDisableWindow(Panel contentPane,Size size)
         {
             ExtendedPanel panDisabling = new ExtendedPanel(35, PanelType.Normmal, Direction.LeftToRight);
-            panDisabling.Size = new Size(panel1.Size.Width / 2, panel1.Size.Height / 2);
-            panDisabling.BackColor = Color.FromArgb(20, this.BackColor);
-
+            panDisabling.Size = size;
+            panDisabling.BackColor = Color.FromArgb(200, this.BackColor);
+            panDisabling.Location = new Point(((panel1.Width-panDisabling.Width)/2), ((panel1.Height - panDisabling.Height) / 2));
             panel1.Controls.Add(panDisabling);
+            if (contentPane != null){
+                contentPane.Size = panDisabling.Size;
+                panDisabling.Controls.Add(contentPane);
+            }
+            //Lower appears above (first)
+            ExtendedPanel backGround = new ExtendedPanel(1,PanelType.Normmal,Direction.LeftToRight);
+            backGround.BackColor = Color.LightGray;
+            backGround.Size = panel1.Size;
+            panel1.Controls.Add(backGround);
 
-            //Lower appear fisrt
+            panel1.Controls.SetChildIndex(backGround, 1);
             panel1.Controls.SetChildIndex(panDisabling, 0);
+            
+            //
+            basePanel.BringToFront();
+            backGround.BringToFront();
+            panDisabling.BringToFront();
         }
 
         public static string GetApplicationRoot()
