@@ -312,27 +312,49 @@ namespace Help
         private void Vcsetup_MouseClick(object sender, MouseEventArgs e)
         {
             TableLayoutPanel _TablePanel = new TableLayoutPanel();
-            _TablePanel.RowStyles.Add(new RowStyle(SizeType.Percent, 0.3f));
-            _TablePanel.RowStyles.Add(new RowStyle(SizeType.Percent, 0.3f));
-            _TablePanel.RowStyles.Add(new RowStyle(SizeType.Percent, 0.3f));
-
+            _TablePanel.RowStyles.Add(new RowStyle(SizeType.Percent, 0.25f));
+            _TablePanel.RowStyles.Add(new RowStyle(SizeType.Percent, 0.25f));
+            _TablePanel.RowStyles.Add(new RowStyle(SizeType.Percent, 0.25f));
+            _TablePanel.RowStyles.Add(new RowStyle(SizeType.Percent, 0.25f));
             _TablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 1.0f));
 
             _TablePanel.RowCount = 3;
             _TablePanel.ColumnCount = 1;
+
+           
 
             var fnt = new Font("Arial", 10, FontStyle.Bold);
             Label title = new Label()
             {
                 Text = "You need to install the following:",
                 Font = fnt,
-                Size = new Size(_TablePanel.Width-5, _TablePanel.Height/3)
-                
+                Size = new Size(500, _TablePanel.Height / 4),
+                Margin = new Padding(0, 5, 0, 0)
             };
             _TablePanel.Controls.Add(title);
 
+            RoundedButton vcsetup_32 = new RoundedButton();
+            vcsetup_32.Size = new Size(300, 32);
+            vcsetup_32.Font = fnt;
+            vcsetup_32.Text = "Install VC_redist.x86.exe";
+            vcsetup_32.Padding = new Padding(10, 5, 5, 5);
+            _TablePanel.Controls.Add(vcsetup_32);
 
-            setDisableWindow(_TablePanel, new Size(400, 200));
+            RoundedButton vcsetup_64 = new RoundedButton();
+            vcsetup_64.Size = new Size(300, 32);
+            vcsetup_64.Font = fnt;
+            vcsetup_64.Text = "Install VC_redist.x64.exe";
+            vcsetup_64.Padding = new Padding(10, 5, 5, 5);
+            _TablePanel.Controls.Add(vcsetup_64);
+
+            RoundedButton close = new RoundedButton();
+            close.Size = new Size(65, 32);
+            close.Font = fnt;
+            close.Text = "Done";
+            close.Padding = new Padding(10, 5, 5, 5);
+            _TablePanel.Controls.Add(close);
+
+            setPopUpWindow(_TablePanel, new Size(400, 200));
         }
 
         private void setThirdOptionComps()
@@ -373,7 +395,7 @@ namespace Help
             }
 
 
-            setDisableWindow(null,new Size(400, 200));
+            setPopUpWindow(null,new Size(400, 200));
         }
 
         private void removeAllChildsForRightBasePane()
@@ -385,7 +407,7 @@ namespace Help
             }
         }
 
-        private void setDisableWindow(Panel contentPane,Size size)
+        private void setPopUpWindow(Panel contentPane,Size size)
         {
             ExtendedPanel panDisabling = new ExtendedPanel(35, PanelType.Normmal, Direction.LeftToRight);
             panDisabling.Size = size;
@@ -393,7 +415,8 @@ namespace Help
             panDisabling.Location = new Point(((panel1.Width-panDisabling.Width)/2), ((panel1.Height - panDisabling.Height) / 2));
             panel1.Controls.Add(panDisabling);
             if (contentPane != null){
-                contentPane.Size = panDisabling.Size;
+                contentPane.Margin = new Padding(20);
+                contentPane.Size = new Size(panDisabling.Width - 40, panDisabling.Height - 40);
                 contentPane.BackColor = panDisabling.BackColor;
                 panDisabling.Controls.Add(contentPane);
             }
