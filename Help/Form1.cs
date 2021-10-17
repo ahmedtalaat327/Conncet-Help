@@ -362,7 +362,8 @@ namespace Help
             //Lower appears above (first)
             ExtendedPanel backGround = new ExtendedPanel(1,PanelType.Normmal,Direction.LeftToRight);
             backGround.BackColor = Color.LightGray;
-            backGround.Size = panel1.Size;
+            backGround.Size = new Size(panel1.Size.Width-23, panel1.Size.Height-45);
+            backGround.colorUsed = Color.FromArgb(255, 234, 234, 244);
             panel1.Controls.Add(backGround);
 
             panel1.Controls.SetChildIndex(backGround, 1);

@@ -17,6 +17,7 @@ namespace Help
         public  int radius = 0;
         public PanelType Type = PanelType.Normmal;
         private Direction directionOfFlowLayout;
+        public Color colorUsed = Color.FromArgb(255,254,255,255);
 
         public ExtendedPanel(int r,PanelType t,Direction dir)
         {
@@ -107,7 +108,7 @@ namespace Help
                         this.Region = new Region(GraphPath);
                         using (Pen pen = new Pen(Color.FromArgb(40, 5, 5, 5), 0.1f))
                         {
-                            Brush br = new SolidBrush(Color.FromArgb(255, 254, 255, 255));
+                            Brush br = new SolidBrush(Color.FromArgb(255, colorUsed));
                             pen.Alignment = PenAlignment.Inset;
                             SmoothingMode old = e.Graphics.SmoothingMode;
                             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
