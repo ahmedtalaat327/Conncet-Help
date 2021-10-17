@@ -299,18 +299,41 @@ namespace Help
 
         private void setThirdOptionComps()
         {
-            ExtendedPanel p1 = new ExtendedPanel(35, PanelType.Normmal, Direction.LeftToRight);
+            ExtendedPanel p1 = new ExtendedPanel(35, PanelType.Normmal, Direction.TopToDown);
             p1.Size = new Size(rightBasePanel.Width, rightBasePanel.Height * 2 / 3);
             // p1.Controls.Add(paneOfBaloon);
             rightBasePanel.Controls.Add(p1);
             RoundedTextField test = new RoundedTextField();
-            test.Size = new Size(450, 230);
+            test.Size = new Size(p1.Width-30, 230);
             test.Font = new Font("Arial", 11, FontStyle.Regular);
             test.Margin = new Padding(15);
+            test.Name = "Field";
             p1.Controls.Add(test);
+
+            RoundedButton sendfeed = new RoundedButton();
+
+            sendfeed.Size = new Size(140, 30);
+            var fnt = new Font("Arial", 10, FontStyle.Bold);
+            sendfeed.Font = fnt;
+            sendfeed.Text = "Send Feedback";
+            sendfeed.Margin = new Padding(15,0,5,5);
+            sendfeed.Padding = new Padding(10, 5, 5, 5);
+            sendfeed.MouseClick += Sendfeed_MouseClick;
+            p1.Controls.Add(sendfeed);
 
         }
 
+        private void Sendfeed_MouseClick(object sender, MouseEventArgs e)
+        {
+            var parent = ((RoundedButton)(sender)).Parent;
+            foreach(Control item in parent.Controls)
+            {
+                if (item.Name == "Field")
+                {
+                    ((RoundedTextField)item).Enabled = false;
+                }
+            }
+        }
 
         private void removeAllChildsForRightBasePane()
         {

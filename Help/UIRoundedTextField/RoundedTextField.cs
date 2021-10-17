@@ -44,11 +44,25 @@ namespace Help
             textBox.BackColor = Color.FromArgb(255, 240, 240, 240);
             this.BackColor = Color.FromArgb(255, 240, 240, 240);
 
+            textBox.GotFocus += TextBox_GotFocus;
+            textBox.LostFocus += TextBox_LostFocus;
+            
+
             this.Controls.Add(textBox);
 
         }
 
+        private void TextBox_LostFocus(object sender, EventArgs e)
+        {
+            textBox.BackColor = Color.FromArgb(255, 230, 230, 230);
+            this.BackColor = Color.FromArgb(255, 230, 230, 230);
+        }
 
+        private void TextBox_GotFocus(object sender, EventArgs e)
+        {
+            textBox.BackColor = Color.FromArgb(255, 240, 240, 240);
+            this.BackColor = Color.FromArgb(255, 240, 240, 240);
+        }
 
         private void UserControl1_Resize(object sender, EventArgs e)
 
