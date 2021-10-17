@@ -27,8 +27,8 @@ namespace Help
         //right base panel
         public static Panel rightBasePanel = new Panel();
 
-
-       
+        //apps to check
+        List<RoundedButton> apps = new List<RoundedButton>();
 
         private static List<RoundedButton> menuItems = new List<RoundedButton>();
         public Form1()
@@ -155,6 +155,7 @@ namespace Help
 
         private void Form1_Load(object sender, EventArgs e)
         {
+          
 
         }
 
@@ -162,7 +163,7 @@ namespace Help
 
         private void setFirstOptionComps()
         {
-
+            apps.Clear();
 
             TableLayoutPanel _TablePanel = new TableLayoutPanel();
             _TablePanel.RowStyles.Add(new RowStyle(SizeType.Percent, 0.3f));
@@ -231,6 +232,7 @@ namespace Help
             var fnt = new Font("Arial", 10, FontStyle.Bold);
             vcsetup.Font = fnt;
             vcsetup.Text = "Setup 'Connect' environment dependencies";
+            vcsetup.MouseClick += Vcsetup_MouseClick;
 
             vcsetup.Padding = new Padding(10,5,5,5);
             _tl.Controls.Add(vcsetup);
@@ -246,7 +248,7 @@ namespace Help
 
             //Second PAne Comps
             TableLayoutPanel upperMenu = new TableLayoutPanel();
-            List<RoundedButton> apps = new List<RoundedButton>();
+            
             RoundedButton r1 = new RoundedButton();
             r1.img_name = "connect-app256.png";
             r1.app_title = "Connect App.";
@@ -294,8 +296,43 @@ namespace Help
             p2.Controls.Add(upperMenu);
             _TablePanel.Controls.Add(p2);
 
- 
-         
+
+            List<string> appsNames = new List<string> { "Connect", "DataExtraction", "ScanConnect", "Utility" };
+
+            for (int q = 0; q < appsNames.Count(); q++)
+            {
+                var path = GetApplicationRoot() + "\\" + appsNames[q] + ".exe";
+                if (File.Exists(path))
+                {
+                    apps[q].found = true;
+                }
+            }
+        }
+
+        private void Vcsetup_MouseClick(object sender, MouseEventArgs e)
+        {
+            TableLayoutPanel _TablePanel = new TableLayoutPanel();
+            _TablePanel.RowStyles.Add(new RowStyle(SizeType.Percent, 0.3f));
+            _TablePanel.RowStyles.Add(new RowStyle(SizeType.Percent, 0.3f));
+            _TablePanel.RowStyles.Add(new RowStyle(SizeType.Percent, 0.3f));
+
+            _TablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 1.0f));
+
+            _TablePanel.RowCount = 3;
+            _TablePanel.ColumnCount = 1;
+
+            var fnt = new Font("Arial", 10, FontStyle.Bold);
+            Label title = new Label()
+            {
+                Text = "You need to install the following:",
+                Font = fnt,
+                Size = new Size(_TablePanel.Width-5, _TablePanel.Height/3)
+                
+            };
+            _TablePanel.Controls.Add(title);
+
+
+            setDisableWindow(_TablePanel, new Size(400, 200));
         }
 
         private void setThirdOptionComps()
@@ -357,6 +394,7 @@ namespace Help
             panel1.Controls.Add(panDisabling);
             if (contentPane != null){
                 contentPane.Size = panDisabling.Size;
+                contentPane.BackColor = panDisabling.BackColor;
                 panDisabling.Controls.Add(contentPane);
             }
             //Lower appears above (first)
@@ -377,11 +415,9 @@ namespace Help
 
         public static string GetApplicationRoot()
         {
-            var exePath = new Uri(System.Reflection.
-            Assembly.GetExecutingAssembly().CodeBase).LocalPath;
-
-            return new FileInfo(exePath).DirectoryName;
-
+            var workingDirectory = Environment.CurrentDirectory;
+            string pathToExe = $"{workingDirectory}";
+            return pathToExe;
         }
 
     }
