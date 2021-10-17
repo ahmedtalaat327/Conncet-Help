@@ -7,3 +7,13 @@ C:\Users\AhmadHassan\source\repos\Help\Help\obj\x64\Release\Help.csproj.Generate
 C:\Users\AhmadHassan\source\repos\Help\Help\obj\x64\Release\Help.csproj.CoreCompileInputs.cache
 C:\Users\AhmadHassan\source\repos\Help\Help\obj\x64\Release\Help.exe
 C:\Users\AhmadHassan\source\repos\Help\Help\obj\x64\Release\Help.pdb
+C:\Users\AhmadHassan\Desktop\Connect Help\Conncet-Help\Help\bin\x64\Release\Help.exe.config
+C:\Users\AhmadHassan\Desktop\Connect Help\Conncet-Help\Help\bin\x64\Release\Help.exe
+C:\Users\AhmadHassan\Desktop\Connect Help\Conncet-Help\Help\bin\x64\Release\Help.pdb
+C:\Users\AhmadHassan\Desktop\Connect Help\Conncet-Help\Help\obj\x64\Release\Help.csprojAssemblyReference.cache
+C:\Users\AhmadHassan\Desktop\Connect Help\Conncet-Help\Help\obj\x64\Release\Help.Form1.resources
+C:\Users\AhmadHassan\Desktop\Connect Help\Conncet-Help\Help\obj\x64\Release\Help.Properties.Resources.resources
+C:\Users\AhmadHassan\Desktop\Connect Help\Conncet-Help\Help\obj\x64\Release\Help.csproj.GenerateResource.cache
+C:\Users\AhmadHassan\Desktop\Connect Help\Conncet-Help\Help\obj\x64\Release\Help.csproj.CoreCompileInputs.cache
+C:\Users\AhmadHassan\Desktop\Connect Help\Conncet-Help\Help\obj\x64\Release\Help.exe
+C:\Users\AhmadHassan\Desktop\Connect Help\Conncet-Help\Help\obj\x64\Release\Help.pdb
