@@ -133,6 +133,9 @@ namespace Help
         private void Help_option_MouseClick(object sender, MouseEventArgs e)
         {
             removeAllChildsForRightBasePane();
+            DrawingControl.SuspendDrawing(rightBasePanel);
+            setThirdOptionComps();
+            DrawingControl.ResumeDrawing(rightBasePanel);
         }
 
         private void Documentation_option_MouseClick(object sender, MouseEventArgs e)
@@ -256,7 +259,7 @@ namespace Help
             r4.img_name = "da-ext256.png";
             r4.app_title = "DataExtraction.";
 
-
+             
             apps.Add(r1);
             apps.Add(r2);
             apps.Add(r3);
@@ -293,6 +296,21 @@ namespace Help
  
          
         }
+
+        private void setThirdOptionComps()
+        {
+            ExtendedPanel p1 = new ExtendedPanel(35, PanelType.Normmal, Direction.LeftToRight);
+            p1.Size = new Size(rightBasePanel.Width, rightBasePanel.Height * 2 / 3);
+            // p1.Controls.Add(paneOfBaloon);
+            rightBasePanel.Controls.Add(p1);
+            RoundedTextField test = new RoundedTextField();
+            test.Size = new Size(450, 230);
+            test.Font = new Font("Arial", 11, FontStyle.Regular);
+            test.Margin = new Padding(15);
+            p1.Controls.Add(test);
+
+        }
+
 
         private void removeAllChildsForRightBasePane()
         {
