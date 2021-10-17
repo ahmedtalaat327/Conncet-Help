@@ -352,9 +352,31 @@ namespace Help
             close.Font = fnt;
             close.Text = "Done";
             close.Padding = new Padding(10, 5, 5, 5);
+            close.MouseClick += Close_MouseClick;
             _TablePanel.Controls.Add(close);
 
             setPopUpWindow(_TablePanel, new Size(400, 200));
+        }
+
+        private void Close_MouseClick(object sender, MouseEventArgs e)
+        {
+            DrawingControl.SuspendDrawing(rightBasePanel);
+            
+            
+            foreach (Control item in panel1.Controls.OfType<Control>().ToList())
+            {
+                if (item.Name == "win")
+                {
+                    panel1.Controls.Remove(item);               
+                }
+               else  if (item.Name == "bg")
+                {
+                    panel1.Controls.Remove(item);
+                }
+               
+            }
+            rightBasePanel.Refresh();
+            DrawingControl.ResumeDrawing(rightBasePanel);
         }
 
         private void setThirdOptionComps()
@@ -409,10 +431,13 @@ namespace Help
 
         private void setPopUpWindow(Panel contentPane,Size size)
         {
+            DrawingControl.SuspendDrawing(rightBasePanel);
+
             ExtendedPanel panDisabling = new ExtendedPanel(35, PanelType.Normmal, Direction.LeftToRight);
             panDisabling.Size = size;
             panDisabling.BackColor = Color.FromArgb(200, this.BackColor);
             panDisabling.Location = new Point(((panel1.Width-panDisabling.Width)/2), ((panel1.Height - panDisabling.Height) / 2));
+            panDisabling.Name = "win";
             panel1.Controls.Add(panDisabling);
             if (contentPane != null){
                 contentPane.Margin = new Padding(20);
@@ -421,12 +446,15 @@ namespace Help
                 panDisabling.Controls.Add(contentPane);
             }
             //Lower appears above (first)
-            ExtendedPanel backGround = new ExtendedPanel(1,PanelType.Normmal,Direction.LeftToRight);
+            Panel backGround = new Panel();
             backGround.BackColor = Color.LightGray;
             backGround.Size = new Size(panel1.Size.Width-23, panel1.Size.Height-45);
-            backGround.colorUsed = Color.FromArgb(255, 234, 234, 244);
+            backGround.Name = "bg";
+          //  backGround.colorUsed = Color.FromArgb(255, 234, 234, 244);
+            backGround.BackgroundImage =  Image.FromFile($"asset/emojibg.png");
             panel1.Controls.Add(backGround);
 
+            
             panel1.Controls.SetChildIndex(backGround, 1);
             panel1.Controls.SetChildIndex(panDisabling, 0);
             
@@ -434,6 +462,7 @@ namespace Help
             basePanel.BringToFront();
             backGround.BringToFront();
             panDisabling.BringToFront();
+            DrawingControl.ResumeDrawing(rightBasePanel);
         }
 
         public static string GetApplicationRoot()
