@@ -29,6 +29,8 @@ namespace Help
 
         //apps to check
         List<RoundedButton> apps = new List<RoundedButton>();
+        //apps checker flag
+        bool first_time = true;
 
         private static List<RoundedButton> menuItems = new List<RoundedButton>();
         public Form1()
@@ -155,15 +157,54 @@ namespace Help
 
         private void Form1_Load(object sender, EventArgs e)
         {
-          
+            TableLayoutPanel _TablePanel = new TableLayoutPanel();
+            setPopUpWindow(_TablePanel, new Size(200, 70));
+            CheckAllEXE();
+
+            DrawingControl.SuspendDrawing(panel1);
+
+            DrawingControl.SuspendDrawing(rightBasePanel);
+
+            foreach (Control item in panel1.Controls.OfType<Control>().ToList())
+            {
+                if (item.Name == "win")
+                {
+                    panel1.Controls.Remove(item);
+                }
+                else if (item.Name == "bg")
+                {
+                    panel1.Controls.Remove(item);
+                }
+
+            }
+
+
+            DrawingControl.ResumeDrawing(panel1);
+            DrawingControl.ResumeDrawing(rightBasePanel);
+            rightBasePanel.Refresh();
+
+        }
+        private  async Task CheckAllEXE()
+        {
+            List<string> appsNames = new List<string> { "Connect", "DataExtraction", "ScanConnect", "Utility" };
+             
+                for (int q = 0; q < appsNames.Count(); q++)
+                {
+                    var path = GetApplicationRoot() + "\\" + appsNames[q] + ".exe";
+                    if (File.Exists(path))
+                    {
+                        apps[q].found = true;
+                    }
+                }
+            first_time = false;
+
 
         }
 
 
-
         private void setFirstOptionComps()
         {
-            apps.Clear();
+           
 
             TableLayoutPanel _TablePanel = new TableLayoutPanel();
             _TablePanel.RowStyles.Add(new RowStyle(SizeType.Percent, 0.3f));
@@ -261,13 +302,15 @@ namespace Help
             RoundedButton r4 = new RoundedButton();
             r4.img_name = "da-ext256.png";
             r4.app_title = "DataExtraction.";
+            if (first_time)
+            {
+                apps.Clear();
 
-             
-            apps.Add(r1);
-            apps.Add(r2);
-            apps.Add(r3);
-            apps.Add(r4);
-
+                apps.Add(r1);
+                apps.Add(r2);
+                apps.Add(r3);
+                apps.Add(r4);
+            }
 
 
             int column = 3;
@@ -297,16 +340,7 @@ namespace Help
             _TablePanel.Controls.Add(p2);
 
 
-            List<string> appsNames = new List<string> { "Connect", "DataExtraction", "ScanConnect", "Utility" };
-
-            for (int q = 0; q < appsNames.Count(); q++)
-            {
-                var path = GetApplicationRoot() + "\\" + appsNames[q] + ".exe";
-                if (File.Exists(path))
-                {
-                    apps[q].found = true;
-                }
-            }
+          
         }
 
         private void Vcsetup_MouseClick(object sender, MouseEventArgs e)
