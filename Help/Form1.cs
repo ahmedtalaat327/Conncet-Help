@@ -219,7 +219,7 @@ namespace Help
 
             Label titl1 = new Label();
             titl1.Font = new Font("Arial", 9, FontStyle.Bold);
-            titl1.Margin = new Padding(5, 0, 5, 5);
+            titl1.Margin = new Padding(5, 0, 10, 5);
             titl1.Text = "Check for VC++ in this PC.";
             titl1.Size = new Size(250, 24);
 
@@ -228,7 +228,7 @@ namespace Help
 
             RoundedButton vcsetup = new RoundedButton();
 
-            vcsetup.Size = new Size(400, 50);
+            vcsetup.Size = new Size(400, 35);
             var fnt = new Font("Arial", 10, FontStyle.Bold);
             vcsetup.Font = fnt;
             vcsetup.Text = "Setup 'Connect' environment dependencies";
@@ -360,9 +360,10 @@ namespace Help
 
         private void Close_MouseClick(object sender, MouseEventArgs e)
         {
+            DrawingControl.SuspendDrawing(panel1);
+
             DrawingControl.SuspendDrawing(rightBasePanel);
-            
-            
+
             foreach (Control item in panel1.Controls.OfType<Control>().ToList())
             {
                 if (item.Name == "win")
@@ -375,8 +376,12 @@ namespace Help
                 }
                
             }
-            rightBasePanel.Refresh();
+         
+            
+            DrawingControl.ResumeDrawing(panel1);
             DrawingControl.ResumeDrawing(rightBasePanel);
+            rightBasePanel.Refresh();
+          
         }
 
         private void setThirdOptionComps()
@@ -431,7 +436,7 @@ namespace Help
 
         private void setPopUpWindow(Panel contentPane,Size size)
         {
-            DrawingControl.SuspendDrawing(rightBasePanel);
+            DrawingControl.SuspendDrawing(panel1);
 
             ExtendedPanel panDisabling = new ExtendedPanel(35, PanelType.Normmal, Direction.LeftToRight);
             panDisabling.Size = size;
@@ -462,7 +467,7 @@ namespace Help
             basePanel.BringToFront();
             backGround.BringToFront();
             panDisabling.BringToFront();
-            DrawingControl.ResumeDrawing(rightBasePanel);
+            DrawingControl.ResumeDrawing(panel1);
         }
 
         public static string GetApplicationRoot()
