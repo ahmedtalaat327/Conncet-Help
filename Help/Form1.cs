@@ -277,7 +277,7 @@ namespace Help
             upperMenu.BackColor = Color.Red;
             upperMenu.RowCount = 2;
             upperMenu.ColumnCount = 3;
-            upperMenu.BackColor = Color.Transparent;
+            upperMenu.BackColor = p1.colorUsed;
             upperMenu.Margin = new Padding(45, 20, 5, 5);
             foreach (var item in apps)
             {
@@ -390,17 +390,29 @@ namespace Help
             p1.Size = new Size(rightBasePanel.Width, rightBasePanel.Height * 2 / 3);
             // p1.Controls.Add(paneOfBaloon);
             rightBasePanel.Controls.Add(p1);
+
+            var fnt = new Font("Arial", 10, FontStyle.Bold);
+            Label title = new Label()
+            {
+                Text = "Thanks in advance, please explane your problem..",
+                Font = fnt,
+                Size = new Size(500, 30),
+                Margin = new Padding(15, 10, 0, 0),
+                BackColor = p1.colorUsed
+            };
+            p1.Controls.Add(title);
+
             RoundedTextField test = new RoundedTextField();
-            test.Size = new Size(p1.Width-30, 230);
+            test.Size = new Size(p1.Width-30, 200);
             test.Font = new Font("Arial", 11, FontStyle.Regular);
-            test.Margin = new Padding(15);
+            test.Margin = new Padding(15,5,10,10);
             test.Name = "Field";
             p1.Controls.Add(test);
 
             RoundedButton sendfeed = new RoundedButton();
 
             sendfeed.Size = new Size(140, 30);
-            var fnt = new Font("Arial", 10, FontStyle.Bold);
+             
             sendfeed.Font = fnt;
             sendfeed.Text = "Send Feedback";
             sendfeed.Margin = new Padding(15,0,5,5);
