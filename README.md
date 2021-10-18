@@ -4,8 +4,12 @@
 This Module is essential to help users to identify any issues while using Connect app.
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
-https://user-images.githubusercontent.com/26097164/137599580-b53dca6d-e112-4be6-89bb-56e37f803e8e.mp4
+## About The Project:</br>
+This app's used in Connect package installer.
+
+https://user-images.githubusercontent.com/26097164/137651506-f5a50ba1-41a4-4596-b50e-53eb7735ba39.mp4
+
+
 
 Here's why:
 * The app focus on protecting Connect main exe's files from damage.
