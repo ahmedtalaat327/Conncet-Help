@@ -5,7 +5,7 @@ This Module is essential to help users to identify any issues while using Connec
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project:</br>
-This app used in Connect package installer.
+This app's used in Connect package installer.
 
 https://user-images.githubusercontent.com/26097164/137651506-f5a50ba1-41a4-4596-b50e-53eb7735ba39.mp4
 
