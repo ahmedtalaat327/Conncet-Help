@@ -5,7 +5,8 @@ This Module is essential to help users to identify any issues while using Connec
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-https://user-images.githubusercontent.com/26097164/137599580-b53dca6d-e112-4be6-89bb-56e37f803e8e.mp4
+![Connect Help 2021-10-18 02-33-14](https://user-images.githubusercontent.com/26097164/137651326-67795e5f-4643-4f75-b52c-45edcca857e5.gif)
+
 
 Here's why:
 * The app focus on protecting Connect main exe's files from damage.
