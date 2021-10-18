@@ -4,8 +4,11 @@
 This Module is essential to help users to identify any issues while using Connect app.
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
-![Connect Help 2021-10-18 02-33-14](https://user-images.githubusercontent.com/26097164/137651326-67795e5f-4643-4f75-b52c-45edcca857e5.gif)
+## About The Project:</br>
+This app used in Connect package installer.
+
+https://user-images.githubusercontent.com/26097164/137651506-f5a50ba1-41a4-4596-b50e-53eb7735ba39.mp4
+
 
 
 Here's why:
