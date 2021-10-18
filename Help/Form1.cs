@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -371,6 +372,7 @@ namespace Help
             vcsetup_32.Size = new Size(300, 32);
             vcsetup_32.Font = fnt;
             vcsetup_32.Text = "Install VC_redist.x86.exe";
+            vcsetup_32.MouseClick += Vcsetup_32_MouseClick;
             vcsetup_32.Padding = new Padding(10, 5, 5, 5);
             _TablePanel.Controls.Add(vcsetup_32);
 
@@ -378,6 +380,7 @@ namespace Help
             vcsetup_64.Size = new Size(300, 32);
             vcsetup_64.Font = fnt;
             vcsetup_64.Text = "Install VC_redist.x64.exe";
+            vcsetup_64.MouseClick += Vcsetup_64_MouseClick;
             vcsetup_64.Padding = new Padding(10, 5, 5, 5);
             _TablePanel.Controls.Add(vcsetup_64);
 
@@ -390,6 +393,18 @@ namespace Help
             _TablePanel.Controls.Add(close);
 
             setPopUpWindow(_TablePanel, new Size(400, 200));
+        }
+
+        private void Vcsetup_64_MouseClick(object sender, MouseEventArgs e)
+        {
+            var path = GetApplicationRoot() + "\\asset\\" + "VC_redist.x64.exe";
+            Process.Start(path);
+        }
+
+        private void Vcsetup_32_MouseClick(object sender, MouseEventArgs e)
+        {
+            var path = GetApplicationRoot() + "\\asset\\" + "VC_redist.x86.exe";
+            Process.Start(path);
         }
 
         private void Close_MouseClick(object sender, MouseEventArgs e)
