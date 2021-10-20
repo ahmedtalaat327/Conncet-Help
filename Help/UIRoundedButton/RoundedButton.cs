@@ -79,7 +79,7 @@ namespace Help
           
 
             RectangleF Rect = new RectangleF(0, 0, this.Width, this.Height);
-            using (GraphicsPath GraphPath = GetRoundPath(Rect, 35))
+            using (GraphicsPath GraphPath = GetRoundPath(Rect, 21))
             {
                 this.Region = new Region(GraphPath);
                 using (Pen pen = new Pen(Color.FromArgb(255,0,200,240), 2.0f))

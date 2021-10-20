@@ -479,6 +479,8 @@ namespace Help
                 if (item.Name == "Field")
                 {
                     ((RoundedTextField)item).Enabled = false;
+                    //send feedback text
+
                 }
             }
 
