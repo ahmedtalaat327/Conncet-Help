@@ -242,7 +242,7 @@ namespace Help
             Label title = new Label();
             title.Font = new Font("Arial", 12, FontStyle.Bold);
             title.Margin = new Padding(5, 5, 5, 1);
-            title.Text = "Welcome to Help Connect App.";
+            title.Text = "Welcome to Help for Connect App.";
             title.Size = new Size(300, 20);
 
             Info.Controls.Add(title);
@@ -276,7 +276,7 @@ namespace Help
             vcsetup.Text = "Setup 'Connect' environment dependencies";
             vcsetup.MouseClick += Vcsetup_MouseClick;
 
-            vcsetup.Padding = new Padding(10,5,5,5);
+            vcsetup.Padding = new Padding(10,7,5,5);
             _tl.Controls.Add(vcsetup);
 
 
@@ -373,7 +373,7 @@ namespace Help
             vcsetup_32.Font = fnt;
             vcsetup_32.Text = "Install VC_redist.x86.exe";
             vcsetup_32.MouseClick += Vcsetup_32_MouseClick;
-            vcsetup_32.Padding = new Padding(10, 5, 5, 5);
+            vcsetup_32.Padding = new Padding(10, 7, 5, 5);
             _TablePanel.Controls.Add(vcsetup_32);
 
             RoundedButton vcsetup_64 = new RoundedButton();
@@ -381,14 +381,14 @@ namespace Help
             vcsetup_64.Font = fnt;
             vcsetup_64.Text = "Install VC_redist.x64.exe";
             vcsetup_64.MouseClick += Vcsetup_64_MouseClick;
-            vcsetup_64.Padding = new Padding(10, 5, 5, 5);
+            vcsetup_64.Padding = new Padding(10, 7, 5, 5);
             _TablePanel.Controls.Add(vcsetup_64);
 
             RoundedButton close = new RoundedButton();
             close.Size = new Size(65, 32);
             close.Font = fnt;
             close.Text = "Done";
-            close.Padding = new Padding(10, 5, 5, 5);
+            close.Padding = new Padding(10, 7, 5, 5);
             close.MouseClick += Close_MouseClick;
             _TablePanel.Controls.Add(close);
 
@@ -436,7 +436,7 @@ namespace Help
         private void setThirdOptionComps()
         {
             ExtendedPanel p1 = new ExtendedPanel(35, PanelType.Normmal, Direction.TopToDown);
-            p1.Size = new Size(rightBasePanel.Width, rightBasePanel.Height * 2 / 3);
+            p1.Size = new Size(rightBasePanel.Width, rightBasePanel.Height);
             // p1.Controls.Add(paneOfBaloon);
             rightBasePanel.Controls.Add(p1);
 
@@ -449,30 +449,129 @@ namespace Help
                 Margin = new Padding(15, 10, 0, 0),
                 BackColor = p1.colorUsed
             };
-            p1.Controls.Add(title);
+          //  p1.Controls.Add(title);
 
             RoundedTextField test = new RoundedTextField();
             test.Size = new Size(p1.Width-30, 200);
             test.Font = new Font("Arial", 11, FontStyle.Regular);
-            test.Margin = new Padding(15,5,10,10);
+            test.Margin = new Padding(15,5,10,4);
             test.Name = "Field";
-            p1.Controls.Add(test);
+            test.Text = "Hi ..............."+ Environment.NewLine + "Please mention the version:...";
+         //   p1.Controls.Add(test);
+
+
+            RoundedTextField mailFrom = new RoundedTextField();
+            mailFrom.Size = new Size(p1.Width - 30, 33);
+            mailFrom.Font = new Font("Arial", 11, FontStyle.Regular);
+            mailFrom.Margin = new Padding(15, 1, 10, 2);
+            mailFrom.Name = "MailSender";
+            mailFrom.Text =  "Please enter your email.";
+         //   p1.Controls.Add(mailFrom);
 
             RoundedButton sendfeed = new RoundedButton();
 
-            sendfeed.Size = new Size(140, 30);
+            sendfeed.Size = new Size(122, 30);
              
             sendfeed.Font = fnt;
             sendfeed.Text = "Send Feedback";
-            sendfeed.Margin = new Padding(15,0,5,5);
-            sendfeed.Padding = new Padding(10, 5, 5, 5);
+            sendfeed.Margin = new Padding(15,8,5,5);
+            sendfeed.Padding = new Padding(10, 7, 5, 5);
             sendfeed.MouseClick += Sendfeed_MouseClick;
-            p1.Controls.Add(sendfeed);
+            //   p1.Controls.Add(sendfeed);
 
+            ExtendedPanel header = new ExtendedPanel(35, PanelType.Normmal, Direction.TopToDown);
+            header.Size = new Size(p1.Width-20, p1.Height / 6);
+
+            rightBasePanel.Controls.Add(header);
+
+
+            TableLayoutPanel _TablePanel = new TableLayoutPanel();
+            _TablePanel.RowStyles.Add(new RowStyle(SizeType.Percent, 1.0f));
+            _TablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 1.0f));
+            // _TablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 0.5f));
+
+            _TablePanel.RowCount = 1;
+            _TablePanel.ColumnCount = 1;
+
+            
+            Label message = new Label()
+            {
+                Text = "Loading feedback option.",
+                Font = new Font("Arial", 10, FontStyle.Bold),
+                Size = new Size(280, _TablePanel.Height / 4),
+                Margin = new Padding(0, 5, 0, 0)
+            };
+            _TablePanel.Controls.Add(message);
+            setPopUpWindow(_TablePanel, new Size(320, 70));
+
+            WebBrowser browse = new WebBrowser();
+            browse.Navigate("your url here");
+            browse.DocumentCompleted += Browse_DocumentCompleted;
+            browse.Size = p1.Size;
+            browse.Location = new Point(0, 0);
+            p1.Controls.Add(browse);
+
+            ExtendedPanel footer = new ExtendedPanel(35, PanelType.Normmal, Direction.TopToDown);
+            footer.Size = new Size(p1.Width - 20, p1.Height / 6);
+            footer.Location = new Point(0, p1.Height - footer.Height);
+            rightBasePanel.Controls.Add(footer);
+
+            rightBasePanel.Controls.SetChildIndex(footer, 0);
+            rightBasePanel.Controls.SetChildIndex(header,0);
+            rightBasePanel.Controls.SetChildIndex(p1, 2);
+        }
+
+        private void Browse_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            ((WebBrowser)sender).Document.Body.Style = "zoom:90%;";
+
+            DrawingControl.SuspendDrawing(panel1);
+
+            DrawingControl.SuspendDrawing(rightBasePanel);
+
+            foreach (Control controlitem in panel1.Controls.OfType<Control>().ToList())
+            {
+                if (controlitem.Name == "win")
+                {
+                    panel1.Controls.Remove(controlitem);
+                }
+                else if (controlitem.Name == "bg")
+                {
+                    panel1.Controls.Remove(controlitem);
+                }
+
+            }
+
+
+            DrawingControl.ResumeDrawing(panel1);
+            DrawingControl.ResumeDrawing(rightBasePanel);
+            rightBasePanel.Refresh();
         }
 
         private void Sendfeed_MouseClick(object sender, MouseEventArgs e)
         {
+
+            
+
+
+            TableLayoutPanel _TablePanel = new TableLayoutPanel();
+            _TablePanel.RowStyles.Add(new RowStyle(SizeType.Percent, 1.0f));
+            _TablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 1.0f));
+           // _TablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 0.5f));
+
+            _TablePanel.RowCount = 1;
+            _TablePanel.ColumnCount = 1;
+
+            var fnt = new Font("Arial", 10, FontStyle.Bold);
+            Label title = new Label()
+            {
+                Text = "Sending your feedback.",
+                Font = fnt,
+                Size = new Size(280, _TablePanel.Height / 4),
+                Margin = new Padding(0, 5, 0, 0)
+            };
+            _TablePanel.Controls.Add(title);
+
             var parent = ((RoundedButton)(sender)).Parent;
             foreach(Control item in parent.Controls)
             {
@@ -480,17 +579,41 @@ namespace Help
                 {
                     ((RoundedTextField)item).Enabled = false;
                     //send feedback text
+                    setPopUpWindow(_TablePanel, new Size(320, 70));
+                    //MissileFeeding missileFeeding = new MissileFeeding();
+                    //missileFeeding.Execute();
 
+                    DrawingControl.SuspendDrawing(panel1);
+
+                    DrawingControl.SuspendDrawing(rightBasePanel);
+
+                    foreach (Control controlitem in panel1.Controls.OfType<Control>().ToList())
+                    {
+                        if (controlitem.Name == "win")
+                        {
+                            panel1.Controls.Remove(controlitem);
+                        }
+                        else if (controlitem.Name == "bg")
+                        {
+                            panel1.Controls.Remove(controlitem);
+                        }
+
+                    }
+
+
+                    DrawingControl.ResumeDrawing(panel1);
+                    DrawingControl.ResumeDrawing(rightBasePanel);
+                    rightBasePanel.Refresh();
                 }
             }
 
 
-            setPopUpWindow(null,new Size(400, 200));
+           
         }
 
         private void removeAllChildsForRightBasePane()
         {
-            var all = rightBasePanel.Controls;
+            var all = rightBasePanel.Controls.OfType<Control>().ToList();
             foreach(var item in all)
             {
                 rightBasePanel.Controls.Remove((Control)item);

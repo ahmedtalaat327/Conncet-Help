@@ -8,13 +8,12 @@ C:\Users\AhmadHassan\source\repos\Help\Help\obj\x64\Debug\Help.csproj.CoreCompil
 C:\Users\AhmadHassan\source\repos\Help\Help\obj\x64\Debug\Help.exe
 C:\Users\AhmadHassan\source\repos\Help\Help\obj\x64\Debug\Help.pdb
 C:\Users\AhmadHassan\source\repos\Help\Help\obj\x64\Debug\Help.csprojAssemblyReference.cache
-C:\Users\AhmadHassan\Desktop\Connect Help\Conncet-Help\Help\obj\x64\Debug\Help.csprojAssemblyReference.cache
+C:\Users\AhmadHassan\Desktop\Connect Help\Conncet-Help\Help\bin\x64\Debug\Help.exe.config
+C:\Users\AhmadHassan\Desktop\Connect Help\Conncet-Help\Help\bin\x64\Debug\Help.exe
+C:\Users\AhmadHassan\Desktop\Connect Help\Conncet-Help\Help\bin\x64\Debug\Help.pdb
 C:\Users\AhmadHassan\Desktop\Connect Help\Conncet-Help\Help\obj\x64\Debug\Help.Form1.resources
 C:\Users\AhmadHassan\Desktop\Connect Help\Conncet-Help\Help\obj\x64\Debug\Help.Properties.Resources.resources
 C:\Users\AhmadHassan\Desktop\Connect Help\Conncet-Help\Help\obj\x64\Debug\Help.csproj.GenerateResource.cache
 C:\Users\AhmadHassan\Desktop\Connect Help\Conncet-Help\Help\obj\x64\Debug\Help.csproj.CoreCompileInputs.cache
 C:\Users\AhmadHassan\Desktop\Connect Help\Conncet-Help\Help\obj\x64\Debug\Help.exe
 C:\Users\AhmadHassan\Desktop\Connect Help\Conncet-Help\Help\obj\x64\Debug\Help.pdb
-C:\Users\AhmadHassan\Desktop\Connect Help\Conncet-Help\Help\bin\x64\Debug\Help.exe.config
-C:\Users\AhmadHassan\Desktop\Connect Help\Conncet-Help\Help\bin\x64\Debug\Help.exe
-C:\Users\AhmadHassan\Desktop\Connect Help\Conncet-Help\Help\bin\x64\Debug\Help.pdb
