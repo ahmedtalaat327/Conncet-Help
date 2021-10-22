@@ -7,7 +7,11 @@ This Module is essential to help users to identify any issues while using Connec
 ## About The Project:</br>
 This app's used in Connect package installer.
 
-https://user-images.githubusercontent.com/26097164/137652855-b9226add-6f7b-47e5-9aef-ce0ee4f56772.mp4
+
+
+https://user-images.githubusercontent.com/26097164/138404721-f32fc60d-9899-423b-a499-445900dfd073.mp4
+
+
 
 
 Here's why:
