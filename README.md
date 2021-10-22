@@ -16,7 +16,7 @@ https://user-images.githubusercontent.com/26097164/138404721-f32fc60d-9899-423b-
 
 Here's why:
 * The app focus on protecting Connect main exe's files from damage.
-* You should install VC++ Redist from the the Help app.
+* You should install VC++ Redist from the Help app to run connect.exe
 * You can read documentations and examples for more understanding :smile:
  
 <!-- GETTING STARTED -->
