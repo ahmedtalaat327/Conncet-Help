@@ -17,3 +17,4 @@ C:\Users\AhmadHassan\Desktop\Connect Help\Conncet-Help\Help\obj\x64\Debug\Help.c
 C:\Users\AhmadHassan\Desktop\Connect Help\Conncet-Help\Help\obj\x64\Debug\Help.csproj.CoreCompileInputs.cache
 C:\Users\AhmadHassan\Desktop\Connect Help\Conncet-Help\Help\obj\x64\Debug\Help.exe
 C:\Users\AhmadHassan\Desktop\Connect Help\Conncet-Help\Help\obj\x64\Debug\Help.pdb
+C:\Users\AhmadHassan\Desktop\Connect Help\Conncet-Help\Help\obj\x64\Debug\Help.csprojAssemblyReference.cache

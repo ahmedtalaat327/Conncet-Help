@@ -229,12 +229,12 @@ namespace Help
             p1.Controls.Add(paneOfBaloon);
             TableLayoutPanel Info = new TableLayoutPanel();
             //Info.BackColor = Color.Gray;
-            Info.RowStyles.Add(new RowStyle(SizeType.Percent, 0.5f));
-            Info.RowStyles.Add(new ColumnStyle(SizeType.Percent, 1.0f));
+            Info.RowStyles.Add(new RowStyle(SizeType.Percent, 1.0f));
+            Info.RowStyles.Add(new ColumnStyle(SizeType.Percent, 4.0f));
             Info.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 1.0f));
             Info.RowCount = 2;
             Info.ColumnCount = 1;
-            Info.Margin = new Padding(5,15,5,15);
+            Info.Margin = new Padding(5,15,5,5);
             Info.Size = new Size(p1.Width-85, p1.Height);
             Info.BackColor = Color.FromArgb(255, 254, 255, 255);
 
@@ -250,34 +250,81 @@ namespace Help
            
 
             TableLayoutPanel _tl = new TableLayoutPanel();
-            _tl.RowStyles.Add(new RowStyle(SizeType.Percent, 0.4f));
-            _tl.RowStyles.Add(new RowStyle(SizeType.Percent, 0.6f));
+            _tl.RowStyles.Add(new RowStyle(SizeType.Percent, 6.0f));
+            _tl.RowStyles.Add(new RowStyle(SizeType.Percent, 4.0f));
             _tl.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 1.0f));
 
             _tl.RowCount = 2;
             _tl.ColumnCount = 1;
+            _tl.Margin = new Padding(2, 2, 2, 2);
+            _tl.Size = new Size(342, 70);
 
-            _tl.Size = new Size(342, 50);
+         
+
+            TableLayoutPanel _paneOfCheckVC = new TableLayoutPanel();
+            _paneOfCheckVC.RowStyles.Add(new RowStyle(SizeType.Percent, 1.0f));
+            _paneOfCheckVC.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 3.0f));
+            _paneOfCheckVC.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 1.0f));
+            _paneOfCheckVC.RowCount = 1;
+            _paneOfCheckVC.ColumnCount = 2;
+            _paneOfCheckVC.Size = new Size(_tl.Width, 28);
+             
+           
 
             Label titl1 = new Label();
-            titl1.Font = new Font("Arial", 9, FontStyle.Bold);
-            titl1.Margin = new Padding(5, 0, 10, 5);
+            titl1.Font = new Font("Arial", 10, FontStyle.Bold);
+            titl1.Margin = new Padding(1);
             titl1.Text = "Check for VC++ in this PC.";
-            titl1.Size = new Size(250, 24);
+            titl1.Size = new Size(180, _paneOfCheckVC.Height * 7 / 10);
 
-            _tl.Controls.Add(titl1);
+            Panel paneOfstatues = new Panel();
+            Task<Image>.Factory.StartNew(() =>
+            {
+                Image im = null;
 
+                if(!QuickMession.IsVC2015Installed())
+                im = Bitmap.FromFile($"asset/not.png");
+                else im = Bitmap.FromFile($"asset/yes.png");
+
+                return im;
+            }).ContinueWith(t =>
+            {
+                paneOfstatues.BackgroundImage = t.Result;
+                // this.BackgroundImage = t.Result;
+            }, TaskScheduler.FromCurrentSynchronizationContext());
+
+            paneOfstatues.Name = "installationvc";
+            paneOfstatues.Size = new Size(24, 24);
+            // paneOfstatues.BackColor = Color.Red;
+
+
+
+
+
+            _paneOfCheckVC.Controls.Add(titl1);
+            _paneOfCheckVC.Controls.Add(paneOfstatues);
+
+
+           
+
+                _tl.Controls.Add(_paneOfCheckVC);
 
             RoundedButton vcsetup = new RoundedButton();
 
-            vcsetup.Size = new Size(400, 35);
+            vcsetup.Size = new Size(305, 35);
             var fnt = new Font("Arial", 10, FontStyle.Bold);
             vcsetup.Font = fnt;
             vcsetup.Text = "Setup 'Connect' environment dependencies";
             vcsetup.MouseClick += Vcsetup_MouseClick;
+            vcsetup.Margin = new Padding(0, 0, 0, 0);
+            vcsetup.Padding = new Padding(10,5,5,5);
 
-            vcsetup.Padding = new Padding(10,7,5,5);
-            _tl.Controls.Add(vcsetup);
+            if (QuickMession.IsVC2015Installed())
+                vcsetup.Enabled = false;
+
+
+
+           _tl.Controls.Add(vcsetup);
 
 
             Info.Controls.Add(_tl);
@@ -340,8 +387,8 @@ namespace Help
             p2.Controls.Add(upperMenu);
             _TablePanel.Controls.Add(p2);
 
+           
 
-          
         }
 
         private void Vcsetup_MouseClick(object sender, MouseEventArgs e)
@@ -505,7 +552,7 @@ namespace Help
             setPopUpWindow(_TablePanel, new Size(320, 70));
 
             WebBrowser browse = new WebBrowser();
-            browse.Navigate("your url here");
+            browse.Navigate("http://supportconnectapp.weebly.com/connectfeedback.html");
             browse.DocumentCompleted += Browse_DocumentCompleted;
             browse.Size = p1.Size;
             browse.Location = new Point(0, 0);
