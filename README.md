@@ -9,14 +9,19 @@ This app is located in Connect package installer.
 
 
 
-https://user-images.githubusercontent.com/26097164/138404721-f32fc60d-9899-423b-a499-445900dfd073.mp4
+
+
+
+https://user-images.githubusercontent.com/26097164/139200138-a1a6c7c5-b1e8-4d3a-9e8a-70a3dd74a5d9.mp4
+
 
 
 
 
 Here's why:
 * The app focus on protecting Connect main exe's files from damage.
-* You should install VC++ Redist from the Help app to run connect.exe
+* [NEW] If Help app counter that any of .dll files is not present it will show red icon.
+* You should install VC++ Redist from the Help app to run connect.exe if .dll's runtime are damaged.
 * You can read documentations and examples for more understanding :smile:
  
 <!-- GETTING STARTED -->
