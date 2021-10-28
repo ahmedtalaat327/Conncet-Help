@@ -1,7 +1,7 @@
 # Conncet-Help <img src="https://user-images.githubusercontent.com/26097164/137600325-df4b0dc5-0189-4725-8366-8955ef5983f5.png" width="40" height="40" />
 
 
-This Module is essential to help users to identify any issues while using Connect app.
+This Module is essential to help users to identify any issues while using Connect app.</br>
 Connect app Screenshot.
 ![njkl](https://user-images.githubusercontent.com/26097164/139201675-18393ffd-6d81-4c50-b7cb-ef1eb594da46.png)
 
