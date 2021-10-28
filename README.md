@@ -5,7 +5,7 @@ This Module is essential to help users to identify any issues while using Connec
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project:</br>
-This app's used in Connect package installer.
+This app is located in Connect package installer.
 
 
 
