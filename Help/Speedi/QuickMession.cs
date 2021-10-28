@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using Microsoft.Win32;
+using System.IO;
+
 namespace Help
 {
     public static class QuickMession
@@ -45,6 +47,42 @@ namespace Help
                 }
             }
             return false;
+        }
+
+        public static bool IsVCRunTimeDLLExist(string pathOfCurrentExe)
+        {
+            bool runTimeExist = false;
+            List<string> DllNames = new List<string> { "vcruntime140", "vcruntime140_1", "msvcp140" };
+            List<bool> allHere = new List<bool>();
+            for (int q = 0; q < DllNames.Count(); q++)
+            {
+                var path = pathOfCurrentExe + "\\" + DllNames[q] + ".dll";
+                if (File.Exists(path))
+                {
+                    allHere.Add(true);
+                }
+                else
+                {
+                    allHere.Add(false);
+                }
+            }
+
+
+            foreach(var item in allHere)
+            {
+                if (!((bool)item))
+                {
+                    runTimeExist = false;
+                    break;
+                }
+                else
+                {
+                    runTimeExist = true;
+                }
+            }
+
+
+            return runTimeExist;
         }
     }
 }

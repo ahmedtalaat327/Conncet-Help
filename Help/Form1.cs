@@ -282,7 +282,7 @@ namespace Help
             {
                 Image im = null;
 
-                if(!QuickMession.IsVC2015Installed())
+                if(!QuickMession.IsVC2015Installed()||!QuickMession.IsVCRunTimeDLLExist(GetApplicationRoot()))
                 im = Bitmap.FromFile($"asset/not.png");
                 else im = Bitmap.FromFile($"asset/yes.png");
 
@@ -322,9 +322,14 @@ namespace Help
             if (QuickMession.IsVC2015Installed())
                 vcsetup.Enabled = false;
 
+            if (QuickMession.IsVCRunTimeDLLExist(GetApplicationRoot()))
+                vcsetup.Enabled = false;
 
 
-           _tl.Controls.Add(vcsetup);
+
+
+
+            _tl.Controls.Add(vcsetup);
 
 
             Info.Controls.Add(_tl);
