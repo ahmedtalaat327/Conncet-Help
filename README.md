@@ -2,9 +2,10 @@
 
 
 This Module is essential to help users to identify any issues while using Connect app.</br>
-Connect app Screenshot.
+Connect app Screens.
 ![njkl](https://user-images.githubusercontent.com/26097164/139201675-18393ffd-6d81-4c50-b7cb-ef1eb594da46.png)
 
+![dsd](https://user-images.githubusercontent.com/26097164/139448754-ba8d69db-b05a-4f74-b0fe-ba403737e5af.png)
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project:</br>
