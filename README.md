@@ -31,7 +31,6 @@ Here's why:
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.</br>
 To get a local copy up and running follow these simple example steps.
 1. Clone the git project
 2. Commit your changes and mods using (Visual studio 2019 or higher).
