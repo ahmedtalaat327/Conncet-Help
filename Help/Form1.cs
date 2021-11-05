@@ -282,9 +282,12 @@ namespace Help
             {
                 Image im = null;
 
-                if(!QuickMession.IsVC2015Installed()||!QuickMession.IsVCRunTimeDLLExist(GetApplicationRoot()))
-                im = Bitmap.FromFile($"asset/not.png");
-                else im = Bitmap.FromFile($"asset/yes.png");
+                if(QuickMession.IsVC2015Installed())
+                im = Bitmap.FromFile($"asset/yes.png");
+                if(QuickMession.IsVCRunTimeDLLExist(GetApplicationRoot()))
+                im = Bitmap.FromFile($"asset/yes.png");
+                if (!QuickMession.IsVC2015Installed()&&!QuickMession.IsVCRunTimeDLLExist(GetApplicationRoot()))
+                    im = Bitmap.FromFile($"asset/not.png");
 
                 return im;
             }).ContinueWith(t =>
