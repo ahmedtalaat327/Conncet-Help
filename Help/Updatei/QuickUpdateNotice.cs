@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Help.Updatei
 {
     class QuickUpdateNotice : MyUpdate
     {
+
+        private string RealivePath { get; set; } = Form1.GetApplicationRoot();
+
         public QuickUpdateNotice(string appName)
         {
 
@@ -22,5 +21,7 @@ namespace Help.Updatei
         {
             
         }
+
+      
     }
 }

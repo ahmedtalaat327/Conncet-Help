@@ -1,4 +1,5 @@
 ﻿
+using Help.Updatei;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -408,7 +409,9 @@ namespace Help
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
            var name = ((RoundedButton)sender).Name;
-            MessageBox.Show(name);
+            //MessageBox.Show(name);
+            QuickUpdateNotice UpdateMe = new QuickUpdateNotice(name);
+
         }
 
         private void Vcsetup_MouseClick(object sender, MouseEventArgs e)
