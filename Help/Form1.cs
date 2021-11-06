@@ -374,14 +374,24 @@ namespace Help
             upperMenu.ColumnCount = 3;
             upperMenu.BackColor = p1.colorUsed;
             upperMenu.Margin = new Padding(45, 20, 5, 5);
+
+            int counter = 0;
+            List<string> appsNames = new List<string> { "Connect", "ScanConnect", "Utility", "DataExtraction" };
             foreach (var item in apps)
             {
 
-
+                item.Name = appsNames[counter];
                 item.Size = new Size(120, 120);
                 item.Margin = new Padding(5);
-                upperMenu.Controls.Add(item);
 
+                //stop duplictaing events  by:
+                //removing any event registered to Mouseclick
+                ((RoundedButton)item).MouseClick -= Form1_MouseClick;
+                //then add it again!
+                ((RoundedButton)item).MouseClick += Form1_MouseClick;
+
+                upperMenu.Controls.Add(item);
+                counter++;
 
             }
 
@@ -393,6 +403,12 @@ namespace Help
 
            
 
+        }
+
+        private void Form1_MouseClick(object sender, MouseEventArgs e)
+        {
+           var name = ((RoundedButton)sender).Name;
+            MessageBox.Show(name);
         }
 
         private void Vcsetup_MouseClick(object sender, MouseEventArgs e)
