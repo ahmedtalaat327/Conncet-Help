@@ -19,7 +19,7 @@ namespace Help.Updatei
         /// <summary>
         /// Get current update then compare to check if there something to be graped!
         /// </summary>
-        public virtual void MyUpdate_GrapNextVersion()
+        public virtual void MyUpdate_GrabNextVersion()
         {
 
         }
