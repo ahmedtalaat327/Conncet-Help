@@ -16,7 +16,9 @@ namespace Help.Updatei
         public virtual bool MyUpdate_CheckForMe(string nameofapp,int cversion) {
             return false;
         }
-
+        /// <summary>
+        /// Get current update then compare to check if there something to be graped!
+        /// </summary>
         public virtual void MyUpdate_GrapNextVersion()
         {
 
