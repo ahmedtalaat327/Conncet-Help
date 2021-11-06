@@ -91,6 +91,7 @@
     <Compile Include="UIRoundedTextField\RoundedTextField.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Updatei\MyUpdate.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
