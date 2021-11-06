@@ -17,7 +17,10 @@ namespace Help.Updatei
             return false;
         }
 
+        public virtual void MyUpdate_GrapNextVersion()
+        {
 
+        }
 
 
 
