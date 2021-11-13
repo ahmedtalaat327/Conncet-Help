@@ -384,7 +384,7 @@ namespace Help
                 item.Name = appsNames[counter];
                 item.Size = new Size(120, 120);
                 item.Margin = new Padding(5);
-
+              
                 //stop duplictaing events  by:
                 //removing any event registered to Mouseclick
                 ((RoundedButton)item).MouseClick -= Form1_MouseClick;
@@ -408,10 +408,16 @@ namespace Help
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
-           var name = ((RoundedButton)sender).Name;
-            //MessageBox.Show(name);
-            QuickUpdateNotice UpdateMe = new QuickUpdateNotice(this,name);
+            List<string> names = new List<string>();
 
+            foreach (var item in apps)
+            {
+                var name = ((RoundedButton)sender).Name;
+                names.Add(name);
+            }
+            //MessageBox.Show(name);
+            QuickUpdateNotice UpdateMe = new QuickUpdateNotice(this,names.ToArray());
+           
         }
 
         private void Vcsetup_MouseClick(object sender, MouseEventArgs e)
