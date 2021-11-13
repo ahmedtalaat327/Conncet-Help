@@ -30,23 +30,23 @@ namespace Help
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.panel1 = new System.Windows.Forms.Panel();
+            Form1.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(244)))));
-            this.panel1.Location = new System.Drawing.Point(2, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 512);
-            this.panel1.TabIndex = 0;
+            Form1.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(244)))));
+            Form1.panel1.Location = new System.Drawing.Point(2, 2);
+            Form1.panel1.Name = "panel1";
+            Form1.panel1.Size = new System.Drawing.Size(800, 512);
+            Form1.panel1.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 473);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(Form1.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Connect Help";
@@ -57,7 +57,7 @@ namespace Help
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private static System.Windows.Forms.Panel panel1;
     }
 }
 

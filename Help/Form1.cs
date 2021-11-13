@@ -410,7 +410,7 @@ namespace Help
         {
            var name = ((RoundedButton)sender).Name;
             //MessageBox.Show(name);
-            QuickUpdateNotice UpdateMe = new QuickUpdateNotice(name);
+            QuickUpdateNotice UpdateMe = new QuickUpdateNotice(this,name);
 
         }
 
@@ -690,13 +690,13 @@ namespace Help
             }
         }
 
-        private void setPopUpWindow(Panel contentPane,Size size)
+         public static void setPopUpWindow(Panel contentPane,Size size)
         {
             DrawingControl.SuspendDrawing(panel1);
 
             ExtendedPanel panDisabling = new ExtendedPanel(35, PanelType.Normmal, Direction.LeftToRight);
             panDisabling.Size = size;
-            panDisabling.BackColor = Color.FromArgb(200, this.BackColor);
+            panDisabling.BackColor = Color.FromArgb(200, Color.FromArgb(255,240,240,240));
             panDisabling.Location = new Point(((panel1.Width-panDisabling.Width)/2), ((panel1.Height - panDisabling.Height) / 2));
             panDisabling.Name = "win";
             panel1.Controls.Add(panDisabling);

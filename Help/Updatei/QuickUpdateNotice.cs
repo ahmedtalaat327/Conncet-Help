@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Drawing;
+using System.Windows.Forms;
 
 namespace Help.Updatei
 {
@@ -7,9 +8,10 @@ namespace Help.Updatei
 
         private string RealivePath { get; set; } = Form1.GetApplicationRoot();
 
-        public QuickUpdateNotice(string appName)
+        public QuickUpdateNotice(Form mainForm, string appName)
         {
-
+            TableLayoutPanel _TablePanel = new TableLayoutPanel();
+            Form1.setPopUpWindow(_TablePanel, new Size(400, 200));
         }
 
         public override bool MyUpdate_CheckForMe(string nameofapp, int cversion)
