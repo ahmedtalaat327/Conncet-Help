@@ -17,22 +17,12 @@ namespace Help.Updatei
             for (int x = 0; x < appNames.Length + 1; x++)
             {
                 _TablePanel.RowStyles.Add(new RowStyle(SizeType.Percent, 1.0f));
-                if (x != 0)
-                {
-                    _TablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 1.0f));
-                    _TablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 2.0f));
-                    _TablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 1.0f));
-                    _TablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 1.0f));
-                }
-                else
-                {
-                    _TablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 4.0f));
-                }
+              
             }
+            _TablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 4.0f));
 
-      
             _TablePanel.RowCount = appNames.Length+1;
-            _TablePanel.ColumnCount = 4;
+            _TablePanel.ColumnCount = 1;
             _TablePanel.Size = new Size(_width-20, _height-20);
 
             Label titl1 = new Label();
@@ -46,6 +36,7 @@ namespace Help.Updatei
             {
                 //each block create here
                 //|---icon---|-------name------|---button---|--state--|
+                _TablePanel.Controls.Add(CreateUpdateBlock(icon));
 
             }
 
@@ -63,7 +54,37 @@ namespace Help.Updatei
         }
         private Panel CreateUpdateBlock(string text)
         {
-            return null;
+            TableLayoutPanel _TablePanel = new TableLayoutPanel();
+            _TablePanel.RowStyles.Add(new RowStyle(SizeType.Percent, 1.0f));
+            _TablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 1.0f));
+            _TablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 2.0f));
+            _TablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 1.0f));
+            _TablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 0.5f));
+            _TablePanel.RowCount =  1;
+            _TablePanel.ColumnCount = 4;
+
+            //cretae icon
+            Image loadedImage = Image.FromFile($"asset/balooon.png");
+            Panel paneOfBaloon = new Panel();
+            paneOfBaloon.BackgroundImage = (loadedImage);
+            paneOfBaloon.Size = new Size(85, 100);
+            paneOfBaloon.BackColor = Color.FromArgb(255, 254, 255, 255);
+            //create lbl
+            Label titl1 = new Label();
+            titl1.Font = new Font("Arial", 11, FontStyle.Bold);
+            // titl1.Margin = new Padding(1);
+            titl1.Text = "xxxxxxxxxxxx.";
+            titl1.Size = new Size(_width, 20);
+          
+            //create another lbl
+
+            //create rbutton
+
+
+
+            _TablePanel.Controls.Add(paneOfBaloon);
+            _TablePanel.Controls.Add(titl1);
+            return _TablePanel;
         }
       
     }

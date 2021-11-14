@@ -14,6 +14,9 @@ namespace Help
 {
     public partial class Form1 : Form
     {
+        //files names 
+        List<string> appsNames = new List<string> { "Connect", "ScanConnect", "Utility", "DataExtraction" };
+
         //Panel1 _ GridPnel 2 columns and 1 row
         public static TableLayoutPanel basePanel = new TableLayoutPanel();
 
@@ -184,7 +187,6 @@ namespace Help
         }
         private  async Task CheckAllEXE()
         {
-            List<string> appsNames = new List<string> { "Connect", "DataExtraction", "ScanConnect", "Utility" };
              
                 for (int q = 0; q < appsNames.Count(); q++)
                 {
@@ -376,12 +378,12 @@ namespace Help
             upperMenu.BackColor = p1.colorUsed;
             upperMenu.Margin = new Padding(45, 20, 5, 5);
 
-            int counter = 0;
-            List<string> appsNames = new List<string> { "Connect", "ScanConnect", "Utility", "DataExtraction" };
+           
+         
             foreach (var item in apps)
             {
 
-                item.Name = appsNames[counter];
+                 
                 item.Size = new Size(120, 120);
                 item.Margin = new Padding(5);
               
@@ -392,7 +394,7 @@ namespace Help
                 ((RoundedButton)item).MouseClick += Form1_MouseClick;
 
                 upperMenu.Controls.Add(item);
-                counter++;
+               
 
             }
 
@@ -406,17 +408,11 @@ namespace Help
 
         }
 
+       
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
-            List<string> names = new List<string>();
-
-            foreach (var item in apps)
-            {
-                var name = ((RoundedButton)sender).Name;
-                names.Add(name);
-            }
-            //MessageBox.Show(name);
-            QuickUpdateNotice UpdateMe = new QuickUpdateNotice(this,names.ToArray());
+         
+            QuickUpdateNotice UpdateMe = new QuickUpdateNotice(this, appsNames.ToArray());
            
         }
 
