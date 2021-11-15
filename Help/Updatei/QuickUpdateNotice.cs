@@ -14,7 +14,7 @@ namespace Help.Updatei
         public QuickUpdateNotice(Form mainForm, string [] appNames)
         {
             TableLayoutPanel _TablePanel = new TableLayoutPanel();
-            for (int x = 0; x < appNames.Length + 1; x++)
+            for (int x = 0; x < appNames.Length + 2; x++)
             {
                 _TablePanel.RowStyles.Add(new RowStyle(SizeType.Percent, 1.0f));
               
@@ -36,11 +36,25 @@ namespace Help.Updatei
             {
                 //each block create here
                 //|---icon---|-------name------|---button---|--state--|
-                _TablePanel.Controls.Add(CreateUpdateBlock(icon));
+                var panecol = CreateUpdateBlock(icon);
+                panecol.Size = _TablePanel.Size;
+                _TablePanel.Controls.Add(panecol);
 
             }
 
-            Form1.setPopUpWindow(_TablePanel, new Size(_width, _height));
+            RoundedButton done = new RoundedButton();
+
+            done.Size = new Size(80, 35);
+            var fnt = new Font("Arial", 10, FontStyle.Bold);
+            done.Font = fnt;
+            done.Text = "Done";
+            // vcsetup.MouseClick += Vcsetup_MouseClick;
+            done.Margin = new Padding(10, 0, 0, 0);
+            done.Padding = new Padding(15, 8, 5, 5);
+
+            _TablePanel.Controls.Add(done);
+
+            Form1.setPopUpWindow(_TablePanel, _TablePanel.Size);
         }
 
         public override bool MyUpdate_CheckForMe(string nameofapp, int cversion)
@@ -67,15 +81,15 @@ namespace Help.Updatei
             Image loadedImage = Image.FromFile($"asset/balooon.png");
             Panel paneOfBaloon = new Panel();
             paneOfBaloon.BackgroundImage = (loadedImage);
-            paneOfBaloon.Size = new Size(85, 100);
+            paneOfBaloon.Size = new Size(_TablePanel.Size.Height, _TablePanel.Size.Height);
             paneOfBaloon.BackColor = Color.FromArgb(255, 254, 255, 255);
             //create lbl
             Label titl1 = new Label();
             titl1.Font = new Font("Arial", 11, FontStyle.Bold);
-            // titl1.Margin = new Padding(1);
-            titl1.Text = "xxxxxxxxxxxx.";
-            titl1.Size = new Size(_width, 20);
-          
+            titl1.Padding = new Padding(4);
+            titl1.Text = text+".";
+            titl1.Size = new Size(_TablePanel.Size.Width, _TablePanel.Size.Height);
+            titl1.BackColor = Color.Red;
             //create another lbl
 
             //create rbutton
