@@ -96,10 +96,10 @@ namespace Help.Updatei
         {
             TableLayoutPanel _TablePanel = new TableLayoutPanel();
             _TablePanel.RowStyles.Add(new RowStyle(SizeType.Percent, 1.0f));
-            _TablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 1.0f));
+            _TablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 0.5f));
             _TablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 2.0f));
             _TablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 1.0f));
-            _TablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 0.5f));
+            _TablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 1.0f));
             _TablePanel.RowCount =  1;
             _TablePanel.ColumnCount = 4;
 
@@ -117,13 +117,29 @@ namespace Help.Updatei
             titl1.Size = new Size(_TablePanel.Size.Width, _TablePanel.Size.Height);
             titl1.BackColor = Color.Red;
             //create another lbl
-
+            Label titl2 = new Label();
+            titl2.Font = new Font("Arial", 11, FontStyle.Bold);
+            titl2.Padding = new Padding(4);
+            titl2.Text = "Updated" + ".";
+            titl2.Size = new Size(_TablePanel.Size.Width, _TablePanel.Size.Height);
+            titl2.BackColor = Color.Yellow;
             //create rbutton
+            RoundedButton check = new RoundedButton();
 
+            check.Size = new Size(65, 35);
+            var fnt = new Font("Arial", 10, FontStyle.Bold);
+            check.Font = fnt;
+            check.Text = "Check";
+            //check.MouseClick += Vcsetup_MouseClick;
+            check.Margin = new Padding(0, 0, 0, 0);
+            check.Padding = new Padding(10, 9, 5, 5);
 
 
             _TablePanel.Controls.Add(paneOfBaloon);
             _TablePanel.Controls.Add(titl1);
+            _TablePanel.Controls.Add(titl2);
+            _TablePanel.Controls.Add(check);
+
             return _TablePanel;
         }
       
