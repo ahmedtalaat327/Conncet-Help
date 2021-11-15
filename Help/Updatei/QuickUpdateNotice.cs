@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Help.Updatei
@@ -51,10 +52,35 @@ namespace Help.Updatei
             // vcsetup.MouseClick += Vcsetup_MouseClick;
             done.Margin = new Padding(10, 0, 0, 0);
             done.Padding = new Padding(15, 8, 5, 5);
-
+            done.MouseClick += Close_MouseClick;
             _TablePanel.Controls.Add(done);
 
             Form1.setPopUpWindow(_TablePanel, _TablePanel.Size);
+        }
+        private void Close_MouseClick(object sender, MouseEventArgs e)
+        {
+            DrawingControl.SuspendDrawing(Form1.panel1);
+
+            DrawingControl.SuspendDrawing(Form1.rightBasePanel);
+
+            foreach (Control item in Form1.panel1.Controls.OfType<Control>().ToList())
+            {
+                if (item.Name == "win")
+                {
+                    Form1.panel1.Controls.Remove(item);
+                }
+                else if (item.Name == "bg")
+                {
+                    Form1.panel1.Controls.Remove(item);
+                }
+
+            }
+
+
+            DrawingControl.ResumeDrawing(Form1.panel1);
+            DrawingControl.ResumeDrawing(Form1.rightBasePanel);
+            Form1.rightBasePanel.Refresh();
+
         }
 
         public override bool MyUpdate_CheckForMe(string nameofapp, int cversion)

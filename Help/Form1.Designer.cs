@@ -57,7 +57,7 @@ namespace Help
 
         #endregion
 
-        private static System.Windows.Forms.Panel panel1;
+        public static System.Windows.Forms.Panel panel1;
     }
 }
 
