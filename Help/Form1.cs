@@ -412,6 +412,7 @@ namespace Help
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
          
+            
             QuickUpdateNotice UpdateMe = new QuickUpdateNotice(this, appsNames.ToArray());
            
         }

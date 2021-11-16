@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -14,6 +15,11 @@ namespace Help.Updatei
 
         public QuickUpdateNotice(Form mainForm, string [] appNames)
         {
+
+            List<string> n = new List<string>(appNames);
+            n.Add("Help");
+            appNames = n.ToArray();
+
             TableLayoutPanel _TablePanel = new TableLayoutPanel();
             for (int x = 0; x < appNames.Length + 2; x++)
             {
@@ -45,13 +51,13 @@ namespace Help.Updatei
 
             RoundedButton done = new RoundedButton();
 
-            done.Size = new Size(80, 35);
+            done.Size = new Size(60, 35);
             var fnt = new Font("Arial", 10, FontStyle.Bold);
             done.Font = fnt;
             done.Text = "Done";
             // vcsetup.MouseClick += Vcsetup_MouseClick;
             done.Margin = new Padding(10, 0, 0, 0);
-            done.Padding = new Padding(15, 8, 5, 5);
+            done.Padding = new Padding(15, 9, 5, 5);
             done.MouseClick += Close_MouseClick;
             _TablePanel.Controls.Add(done);
 
@@ -132,7 +138,7 @@ namespace Help.Updatei
             check.Text = "Check";
             //check.MouseClick += Vcsetup_MouseClick;
             check.Margin = new Padding(0, 0, 0, 0);
-            check.Padding = new Padding(10, 9, 5, 5);
+            check.Padding = new Padding(10, 6, 5, 5);
 
 
             _TablePanel.Controls.Add(paneOfBaloon);
