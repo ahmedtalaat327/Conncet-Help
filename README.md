@@ -7,6 +7,8 @@ Connect app Screens.
 
 ![dsd](https://user-images.githubusercontent.com/26097164/139448754-ba8d69db-b05a-4f74-b0fe-ba403737e5af.png)
 
+<a href="https://www.microsoft.com/en-us/p/connect-app/9nfv35ngdndm?cid=msft_web_chart&activetab=pivot:overviewtab" rel="nofollow"><img src="https://github.com/lepoco/wpfui/raw/main/.github/assets/microsoft-badge.png?raw=true" style="max-width: 100%;" width="120"></a>
+
 <!-- ABOUT THE PROJECT -->
 ## About The Project:</br>
 This app is located in Connect package installer.
